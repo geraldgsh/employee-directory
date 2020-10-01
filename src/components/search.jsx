@@ -10,7 +10,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { arrayBegin, arraySuccess, arrayFailure } from '../actions/index';
 
 export default function Search() {
-  const [caseTitle, setCaseTitle] = useState();
+  const [employee, setEmployee] = useState();
   const dispatch = useDispatch();
 
   const useStyles = makeStyles(theme => ({
@@ -58,7 +58,6 @@ export default function Search() {
   const traverseTree = (root, list = []) => {
     if (root.length) {
       root.forEach(node => {
-        console.log(node);
         visitChild(node, list);
       });
     }
@@ -74,8 +73,8 @@ export default function Search() {
               label="Employee Name"
               placeholder="John Hartman"
               multiline
-              value={caseTitle}
-              onChange={e => setCaseTitle(e.target.value)}
+              value={employee}
+              onChange={e => setEmployee(e.target.value)}
             />
           </div>
         </Grid>
@@ -84,9 +83,9 @@ export default function Search() {
           size="large"
           className={classes.button}
           endIcon={<SearchIcon />}
-          onClick={() => traverseTree([caseTitle])}
+          onClick={() => traverseTree([employee])}
         >
-          Send
+          Find
         </Button>
       </form>
     </>
