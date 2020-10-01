@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
@@ -12,6 +13,7 @@ import { arrayBegin, arraySuccess, arrayFailure } from '../actions/index';
 export default function Search() {
   const [employee, setEmployee] = useState();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const useStyles = makeStyles(theme => ({
     root: {
@@ -31,8 +33,12 @@ export default function Search() {
     },
   }));
 
-  const visitChild = (node, array) => {
-    // dispatch(arrayBegin);
+  const goResults = () => {
+    history.push('/results');
+  };
+
+  const visitEmployee = (node, array) => {
+    dispatch(arrayBegin());
     axios(`https://api.additivasia.io/api/v1/assignment/employees/${node}`)
       .then(response => {
         if (!response.data[1]) {
@@ -46,7 +52,7 @@ export default function Search() {
         });
         if (info && info.length) {
           info.forEach(child => {
-            visitChild(child, array);
+            visitEmployee(child, array);
           });
         }
         dispatch(arraySuccess(array));
@@ -58,9 +64,10 @@ export default function Search() {
   const traverseTree = (root, list = []) => {
     if (root.length) {
       root.forEach(node => {
-        visitChild(node, list);
+        visitEmployee(node, list);
       });
     }
+    goResults();
   };
   const classes = useStyles();
   return (

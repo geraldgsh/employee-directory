@@ -1,13 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import HomeHeader from '../elements/headers';
 import Search from '../components/search';
 
 const useStyles = makeStyles(() => ({
   root: {
     height: '100%',
-    backgroundColor: '#FFFFCB',
   },
 }));
 
@@ -21,16 +20,7 @@ export default function Home() {
       justify="center"
       alignItems="center"
     >
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
-        <Typography variant="h4" gutterBottom>
-          Employee Explorer
-        </Typography>
-      </Grid>
+      <HomeHeader />
       <Search />
     </Grid>
   );
