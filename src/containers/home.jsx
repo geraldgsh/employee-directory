@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import SearchBar from 'material-ui-search-bar';
+import Search from '../components/search';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -28,12 +28,10 @@ export default function Home() {
         alignItems="center"
       >
         <Typography variant="h4" gutterBottom>
-          Employer Explorer
+          Employee Explorer
         </Typography>
       </Grid>
-      <SearchBar
-        placeholder="John Hartman"
-      />
+      <Search />
     </Grid>
   );
 }
