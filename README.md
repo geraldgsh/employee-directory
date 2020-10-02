@@ -34,17 +34,17 @@ sia.io/api/v1/assignment/employees Solution must work on latest version of Chrom
 
 Overview Screen
 +————————————————————————————————+
-| 				                 |
-| 				                 |
-| Employee Explorer  		     |
-| 				                 |
-| 				                 |
-| +————————————+—————+ 		     |
-| | John Hartman | SEARCH | 	 |
-| +————————————+—————+ 		     |
-| 				                 |
-| 				                 |
-| 				                 |
+|                                |
+|                                |
+| Employee Explorer              |
+|                                |
+|                                |
+| +————————————+—————+           |
+| | John Hartman | SEARCH |      |
+| +————————————+—————+           |
+|                                |
+|                                |
+|                                |
 +————————————————————————————————+
 
 #### Overview Screen
