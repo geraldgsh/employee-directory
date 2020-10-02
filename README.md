@@ -6,7 +6,63 @@ React and Redux
 ![]()
 
 ### Introduction.
+A directory application allows employees of a company to explore the company structure. A user of the application is able to see the names and team members of every supervisor.
 
+### Requirements
+
+1. Only one endpoint is given:
+• http://api.additivasia.io/api/v1/assignment/employees/{employeeName}
+• Returns direct subordinates (e.g. ['technical lead’, { 'direct-subordinates': ['Samad Pitt', ‘Leanna Hogg']}];
+• To get all non-direct subordinates you have to use / http://api.additivasia.io/api/v1/assignment/employees/{employeeName} again and again
+
+2. API all used employee names (for verification, do not use this endpoint): http://api.additiva-
+sia.io/api/v1/assignment/employees Solution must work on latest version of Chrome.
+
+3. Mock of layout is given under technical requirement.
+
+4. Use any third party libraries or starter projects.
+
+6. Solution will be use in production.
+
+7.  Data-structures and time-complexity of algorithms is very important and will be properly evaluated.
+
+8. Any improvements and additional features are welcome. (Help: “John Hartman” shall return 8 employees in overview)
+
+### Layout
+
+#### Home Screen
+
+Overview Screen
++————————————————————————————————+
+| 				                 |
+| 				                 |
+| Employee Explorer  		     |
+| 				                 |
+| 				                 |
+| +————————————+—————+ 		     |
+| | John Hartman | SEARCH | 	 |
+| +————————————+—————+ 		     |
+| 				                 |
+| 				                 |
+| 				                 |
++————————————————————————————————+
+
+#### Overview Screen
+
++————————————————————————————————+
+| 				                 |
+| 				                 |
+| Employee Overview 		     |
+| 				                 |
+| 				                 |
+| Subordinates of employee       |
+| John Hartman:			         |
+|				                 |
+| FullName1 			         |
+| FullName2 			         |
+| FullName3 			         |
+| 				                 |
++————————————————————————————————+
 
 ### Tools
 
@@ -136,7 +192,7 @@ Make sure that you do not modify the [`.github/workflows/linters.yml`](.github/w
 Checkout our [wikipage](https://github.com/geraldgsh/employee-directory/wiki) for more details. 
 
 #### Live Demo
-[Demo](https://employee-directory.netlify.com)
+[Demo](https://company-directory.netlify.com)
 
 #### Getting Started
 Clone repo and open index.html with your favorite browser.
