@@ -3,7 +3,7 @@ React and Redux
 
 ### Snapshot
 
-![]()
+![](https://github.com/geraldgsh/employee-directory/blob/development/src/assets/images/screenshot.jpg?raw=true)
 
 ### Introduction.
 A directory application allows employees of a company to explore the company structure. A user of the application is able to see the names and team members of every supervisor.
