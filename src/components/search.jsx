@@ -69,7 +69,9 @@ export default function Search() {
   const traverseTree = (root, list = []) => {
     if (root.length) {
       dispatch(bossSuccess(root));
-      visitEmployee(root, list);
+      root.forEach(node => {
+        visitEmployee(node, list);
+      });
     }
     goResults();
   };

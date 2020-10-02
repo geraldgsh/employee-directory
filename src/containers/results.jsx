@@ -1,13 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { makeStyles, List } from '@material-ui/core';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import { makeStyles } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Loader from '../elements/loader';
-import NoResult from '../elements/message';
+import { NoResult, ErrorMsg } from '../elements/message';
 import GoBack from '../elements/buttons';
 import { EmployeeOverview, Subordinate } from '../elements/headers';
+import ResultList from '../components/resultList';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,7 +46,7 @@ export default function Results() {
 
   if (error) {
     return (
-      <h3 className={classes.error}>{error}</h3>
+      <ErrorMsg />
     );
   }
   if (arrays && arrays.length === 0) {
@@ -71,26 +70,7 @@ export default function Results() {
     >
       <EmployeeOverview />
       <Subordinate bosses={bosses} />
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
-        <Grid item>
-          <List component="nav" className={classes.list} aria-label="contacts">
-            {arrays ? arrays
-              .map(array => {
-                const labelId = `list-secondary-label-${array}`;
-                return (
-                  <ListItem key={array}>
-                    <ListItemText id={labelId} primary={array} />
-                  </ListItem>
-                );
-              }) : null }
-          </List>
-        </Grid>
-      </Grid>
+      <ResultList />
       <GoBack />
     </Grid>
   );
