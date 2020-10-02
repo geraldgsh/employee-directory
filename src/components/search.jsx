@@ -98,7 +98,7 @@ export default function Search() {
           endIcon={<SearchIcon />}
           onClick={() => traverseTree([employee])}
         >
-          Find
+          Search
         </Button>
       </form>
     </>
