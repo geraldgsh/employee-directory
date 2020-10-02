@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import arraysReducer from './arrays';
+import arrayReducer from './arrays';
+import bossReducer from './bosses';
 
 const rootReducer = combineReducers({
-  arrays: arraysReducer,
+  arrays: arrayReducer,
+  bosses: bossReducer,
 });
 
 export default rootReducer;

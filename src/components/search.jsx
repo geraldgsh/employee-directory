@@ -8,7 +8,12 @@ import TextField from '@material-ui/core/TextField';
 import { Button, makeStyles } from '@material-ui/core';
 import { green } from '@material-ui/core/colors';
 import SearchIcon from '@material-ui/icons/Search';
-import { arrayBegin, arraySuccess, arrayFailure } from '../actions/index';
+import {
+  arrayBegin,
+  arraySuccess,
+  arrayFailure,
+  bossSuccess,
+} from '../actions/index';
 
 export default function Search() {
   const [employee, setEmployee] = useState();
@@ -63,9 +68,8 @@ export default function Search() {
 
   const traverseTree = (root, list = []) => {
     if (root.length) {
-      root.forEach(node => {
-        visitEmployee(node, list);
-      });
+      dispatch(bossSuccess(root));
+      visitEmployee(root, list);
     }
     goResults();
   };

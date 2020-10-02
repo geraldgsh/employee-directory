@@ -1,5 +1,6 @@
 const ARRAY_BEGIN = 'ARRAY_BEGIN';
 const ARRAY_SUCCESS = 'ARRAY_SUCCESS';
+const BOSS_SUCCESS = 'BOSS_SUCCESS';
 const ARRAY_FAILURE = 'ARRAY_FAILURE';
 
 const arrayBegin = () => ({
@@ -11,6 +12,11 @@ const arraySuccess = array => ({
   array,
 });
 
+const bossSuccess = boss => ({
+  type: BOSS_SUCCESS,
+  boss,
+});
+
 const arrayFailure = error => ({
   type: ARRAY_FAILURE,
   error,
@@ -19,8 +25,10 @@ const arrayFailure = error => ({
 export {
   ARRAY_BEGIN,
   ARRAY_SUCCESS,
+  BOSS_SUCCESS,
   ARRAY_FAILURE,
   arrayBegin,
   arraySuccess,
+  bossSuccess,
   arrayFailure,
 };

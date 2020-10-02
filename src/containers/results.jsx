@@ -4,10 +4,10 @@ import { makeStyles, List } from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Loader from '../elements/loader';
 import NoResult from '../elements/message';
 import GoBack from '../elements/buttons';
+import { EmployeeOverview, Subordinate } from '../elements/headers';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -31,11 +31,17 @@ const useStyles = makeStyles(theme => ({
 export default function Results() {
   const classes = useStyles();
 
-  const { loading, arrays, error } = useSelector(
+  const {
+    loading,
+    arrays,
+    error,
+    bosses,
+  } = useSelector(
     state => ({
       loading: state.arrays.loading,
       arrays: state.arrays.arrays,
       error: state.arrays.error,
+      bosses: state.bosses.bosses,
     }),
   );
 
@@ -63,26 +69,8 @@ export default function Results() {
       justify="center"
       alignItems="center"
     >
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
-        <Typography variant="h4" gutterBottom>
-          Employee Overview
-        </Typography>
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-      >
-        <Typography variant="h6" gutterBottom>
-          Subordinate of
-        </Typography>
-      </Grid>
+      <EmployeeOverview />
+      <Subordinate bosses={bosses} />
       <Grid
         container
         direction="row"
@@ -95,7 +83,7 @@ export default function Results() {
               .map(array => {
                 const labelId = `list-secondary-label-${array}`;
                 return (
-                  <ListItem key={array.id}>
+                  <ListItem key={array}>
                     <ListItemText id={labelId} primary={array} />
                   </ListItem>
                 );
