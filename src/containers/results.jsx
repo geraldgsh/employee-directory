@@ -7,6 +7,7 @@ import { NoResult, ErrorMsg } from '../elements/message';
 import GoBack from '../elements/buttons';
 import { EmployeeOverview, Subordinate } from '../elements/headers';
 import ResultList from '../components/resultList';
+import Dummy from '../components/dummy';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,6 +45,11 @@ export default function Results() {
     }),
   );
 
+  if (!bosses) {
+    return (
+      <Dummy />
+    );
+  }
   if (error) {
     return (
       <ErrorMsg />
